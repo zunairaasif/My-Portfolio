@@ -43,6 +43,8 @@ const Navbar = () => {
           </Link>
         </div>
 
+        {/* Nav Links */}
+
         <div className="hidden md:flex items-center">
           {navLinks.map((item) => (
             <NavLink
@@ -64,7 +66,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Drawer */}
+        {/* Drawer Button */}
 
         <button
           className="text-white focus:outline-none md:hidden"
@@ -73,6 +75,17 @@ const Navbar = () => {
           <RiMenu3Line />
         </button>
       </div>
+
+      {/* Overlay */}
+
+      <div
+        className={`fixed inset-0 bg-black bg-opacity-50 transition-opacity duration-300 ${
+          isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
+        onClick={toggleDrawer}
+      ></div>
+
+      {/* Drawer */}
 
       <div
         className={`fixed top-0 right-0 h-full bg-secondary w-64 flex flex-col transform ${
