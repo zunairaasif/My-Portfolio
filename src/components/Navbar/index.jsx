@@ -14,7 +14,7 @@ const Navbar = () => {
   const navLinks = [
     { title: "Home", link: "/", icon: <FaHome /> },
     { title: "About", link: "/about", icon: <RiFolderInfoFill /> },
-    { title: "Project", link: "/project", icon: <MdWork /> },
+    { title: "Projects", link: "/projects", icon: <MdWork /> },
     { title: "Contact", link: "/contact", icon: <RiContactsBook2Fill /> },
   ];
 
@@ -79,7 +79,7 @@ const Navbar = () => {
       {/* Overlay */}
 
       <div
-        className={`fixed inset-0 bg-black bg-opacity-50 transition-opacity duration-300 ${
+        className={`fixed inset-0 bg-black bg-opacity-50 transition-opacity duration-300 block md:hidden ${
           isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
         onClick={toggleDrawer}
