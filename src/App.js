@@ -6,6 +6,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Projects from "./pages/Projects";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import NotFound from "./components/NotFound";
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Route path="/404" element={<NotFound />} />
         <Route path="*" element={<Navigate replace to="/404" />} />
       </Routes>
+      {isFalse || <Footer />}
     </>
   );
 }
