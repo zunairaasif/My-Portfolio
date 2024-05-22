@@ -5,6 +5,8 @@ import { Link, NavLink } from "react-router-dom";
 import { FaHome, FaDownload } from "react-icons/fa";
 import { RiContactsBook2Fill, RiFolderInfoFill } from "react-icons/ri";
 
+import PrimaryBtn from "../../buttons/PrimaryButton";
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleDrawer = () => {
@@ -56,14 +58,11 @@ const Navbar = () => {
               {item.title}
             </NavLink>
           ))}
-          <div className="inline-block ml-4 bg-primary py-2 px-4 rounded font-bold">
-            <button onClick={handleDownload}>
-              <div className="flex items-center gap-2">
-                RESUME
-                <FaDownload />
-              </div>
-            </button>
-          </div>
+
+          <PrimaryBtn onClick={handleDownload}>
+            RESUME
+            <FaDownload />
+          </PrimaryBtn>
         </div>
 
         {/* Drawer Button */}

@@ -42,12 +42,8 @@ const Intro = () => {
         animate={{ x: 0 }}
         transition={{ duration: 1 }}
       >
-        <h2 className="text-neutral text-xl font-medium translate-y-[-90%] sm:translate-y-[-0%]">
-          Hello, I'm
-        </h2>
-        <h1 className="text-4xl font-semibold mb-0 translate-y-[-50%] sm:translate-y-[-0%] ">
-          Zunaira Asif
-        </h1>
+        <h2 className="text-neutral text-xl font-medium">Hello, I'm</h2>
+        <h1 className="text-4xl font-semibold mb-0">Zunaira Asif</h1>
         <div className="my-8">
           <TypeAnimation
             className="text-2xl text-primary my-4    font-bold text-center translate-y-[-100%] sm:translate-y-[-0%]  sm:text-2xl sm:mb-2 md:text-left"
@@ -74,7 +70,7 @@ const Intro = () => {
           industry trends.
         </p>
 
-        <div className="flex items-center translate-y-[-60%] sm:translate-y-[-0%]">
+        <div className="flex items-center">
           <PrimaryBtn
             className="primary-button w-[50%] font-normal"
             onClick={handleDownload}
