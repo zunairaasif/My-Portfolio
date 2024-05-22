@@ -1,7 +1,7 @@
 import React from "react";
 import { FaHome } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import PrimaryBtn from "../PrimaryButton";
+import PrimaryBtn from "../../buttons/PrimaryButton";
 
 const NotFound = () => {
   return (
@@ -16,10 +16,8 @@ const NotFound = () => {
 
         <Link to="/">
           <PrimaryBtn>
-            <div className="flex items-center gap-2">
-              Go To HomePage
-              <FaHome />
-            </div>
+            Go To HomePage
+            <FaHome />
           </PrimaryBtn>
         </Link>
       </div>

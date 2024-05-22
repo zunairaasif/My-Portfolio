@@ -5,9 +5,9 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Projects from "./pages/Projects";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import NotFound from "./components/NotFound";
+import Navbar from "./components/common/Navbar";
+import Footer from "./components/common/Footer";
+import NotFound from "./components/layouts/NotFound";
 
 function App() {
   const location = useLocation();
