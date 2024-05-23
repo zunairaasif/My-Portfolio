@@ -5,6 +5,7 @@ import {
   FaWhatsapp,
   FaGithubSquare,
 } from "react-icons/fa";
+import Lottie from "react-lottie";
 import { MdEmail } from "react-icons/md";
 import React, { useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
@@ -12,6 +13,7 @@ import { useInView } from "react-intersection-observer";
 import { FaSquareUpwork, FaLocationDot } from "react-icons/fa6";
 
 import "./style.css";
+import touch from "../assets/touch.json";
 import BottomLine from "../components/common/BottomLine";
 import { headingAnimation, contactAnimation } from "../components/animations";
 
@@ -27,6 +29,15 @@ const Contact = () => {
       setViewDiv(false);
     }
   }, [inView, animation]);
+
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: touch,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
 
   const contact = [
     {
@@ -59,7 +70,7 @@ const Contact = () => {
   ];
 
   return (
-    <div className="parent py-16">
+    <div className="parent py-10">
       <motion.div
         initial="hidden"
         animate={viewDiv && "visible"}
@@ -72,14 +83,14 @@ const Contact = () => {
         <BottomLine />
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10 items-center">
         <motion.div
           ref={ref}
           initial="hidden"
           animate={viewDiv && "visible"}
           variants={contactAnimation}
         >
-          <h2 className="text-2xl font-medium">Contact Me</h2>
+          <Lottie options={defaultOptions} height={400} width={400} />
         </motion.div>
 
         <motion.div
