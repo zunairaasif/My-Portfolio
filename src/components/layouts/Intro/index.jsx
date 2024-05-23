@@ -3,11 +3,12 @@ import Lottie from "react-lottie";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { FaDownload } from "react-icons/fa";
-import { TypeAnimation } from "react-type-animation";
-import coding from "../../../assets/coding.json";
 import { RiFolderInfoFill } from "react-icons/ri";
-import SecondaryBtn from "../../buttons/SecondaryButton";
+import { TypeAnimation } from "react-type-animation";
+
+import coding from "../../../assets/coding.json";
 import PrimaryBtn from "../../buttons/PrimaryButton";
+import SecondaryBtn from "../../buttons/SecondaryButton";
 
 const PdfUrl = "/zunaira-asif_resume.pdf";
 
@@ -36,7 +37,7 @@ const Intro = () => {
   };
 
   return (
-    <div className="parent min-h-[100vh] flex flex-col-reverse lg:flex-row items-center sm:justify-center justify-between">
+    <div className="parent flex flex-col-reverse lg:flex-row items-center sm:justify-center justify-between">
       <motion.div
         initial={{ x: "-100vw" }}
         animate={{ x: 0 }}
@@ -72,7 +73,7 @@ const Intro = () => {
 
         <div className="flex items-center">
           <PrimaryBtn
-            className="primary-button w-[50%] font-normal"
+            className="primary-button w-full md:w-[50%] font-normal"
             onClick={handleDownload}
           >
             Download Resume
@@ -94,7 +95,7 @@ const Intro = () => {
         animate={{ x: 0 }}
         transition={{ duration: 1 }}
       >
-        <Lottie options={defaultOptions} height="80%" width="80%" />
+        <Lottie options={defaultOptions} height="90%" width="90%" />
       </motion.div>
     </div>
   );

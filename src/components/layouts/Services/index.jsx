@@ -31,21 +31,21 @@ const Services = () => {
     },
     {
       id: 2,
-      title: "Web Design and Maintenance",
+      title: "Web Design",
       icon: <BiPalette />,
       description:
-        "I provide fully flexible website designs for all devices using Tailwind CSS, Material UI and ReactStrap and can solve any of your responsiveness issues",
+        "I provide fully flexible website designs for all devices using Tailwind CSS and Material UI and can solve any of your responsiveness issues",
     },
     {
       id: 3,
-      title: "Web Management",
+      title: "Web Maintenance",
       icon: <FiServer />,
       description:
-        "I will manage any kinds of website. Data Management, Component management, Bug Fixes and  Service management and so on.",
+        "I can manage and maintain any kind of website. Data Management, bug fixes, service management and so on",
     },
   ];
   return (
-    <div className="py-10 parent">
+    <div className="py-16 parent">
       <motion.div
         className="mb-12"
         initial="hidden"

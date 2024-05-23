@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { MdWork } from "react-icons/md";
+import Drawer from "react-modern-drawer";
+import "react-modern-drawer/dist/index.css";
 import { RiMenu3Line } from "react-icons/ri";
 import { Link, NavLink } from "react-router-dom";
 import { FaHome, FaDownload } from "react-icons/fa";
@@ -45,8 +47,6 @@ const Navbar = () => {
           </Link>
         </div>
 
-        {/* Nav Links */}
-
         <div className="hidden md:flex items-center">
           {navLinks.map((item) => (
             <NavLink
@@ -65,66 +65,54 @@ const Navbar = () => {
           </PrimaryBtn>
         </div>
 
-        {/* Drawer Button */}
-
-        <button
-          className="text-white focus:outline-none md:hidden"
-          onClick={toggleDrawer}
-        >
-          <RiMenu3Line />
-        </button>
-      </div>
-
-      {/* Overlay */}
-
-      <div
-        className={`fixed inset-0 bg-black bg-opacity-50 transition-opacity duration-300 block md:hidden ${
-          isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
-        }`}
-        onClick={toggleDrawer}
-      ></div>
-
-      {/* Drawer */}
-
-      <div
-        className={`fixed top-0 right-0 h-full bg-secondary w-64 flex flex-col transform ${
-          isOpen ? "translate-x-0" : "translate-x-full"
-        } transition-transform duration-300 ease-in-out md:hidden`}
-      >
-        <div className="flex justify-end px-4 py-3">
-          <button
-            className="text-white hover:text-primary duration-300"
-            onClick={toggleDrawer}
-          >
-            ✕
+        <div className="block lg:hidden">
+          <button onClick={toggleDrawer} className="btn btn-ghost text-white">
+            <RiMenu3Line />
           </button>
-        </div>
 
-        <nav className="px-4 py-3 flex-1">
-          {navLinks.map((item) => (
-            <NavLink
-              key={item.title}
-              to={item.link}
-              style={activeLink}
-              className="block text-white py-2"
-              onClick={toggleDrawer}
-            >
-              <div className="flex items-center gap-2 hover:text-primary duration-300">
-                {item.icon}
-                {item.title}
-              </div>
-            </NavLink>
-          ))}
-        </nav>
-
-        <div className="m-3">
-          <button
-            onClick={handleDownload}
-            className="w-full bg-primary py-2 px-4 gap-2 rounded font-bold flex items-center justify-center"
+          <Drawer
+            open={isOpen}
+            onClose={toggleDrawer}
+            direction="right"
+            style={{ backgroundColor: "#212121" }}
+            className="bla bla bla flex flex-col justify-between pb-4"
           >
-            RESUME
-            <FaDownload />
-          </button>
+            <div className="flex justify-end px-4 py-3">
+              <button
+                className="text-white hover:text-primary duration-300"
+                onClick={toggleDrawer}
+              >
+                ✕
+              </button>
+            </div>
+
+            <nav className="px-4 py-3 flex-1">
+              {navLinks.map((item) => (
+                <NavLink
+                  key={item.title}
+                  to={item.link}
+                  style={activeLink}
+                  className="block text-white py-2"
+                  onClick={toggleDrawer}
+                >
+                  <div className="flex items-center gap-2 hover:text-primary duration-300">
+                    {item.icon}
+                    {item.title}
+                  </div>
+                </NavLink>
+              ))}
+            </nav>
+
+            <div className="m-3">
+              <button
+                onClick={handleDownload}
+                className="w-full bg-primary py-2 px-4 gap-2 rounded font-bold flex items-center justify-center"
+              >
+                RESUME
+                <FaDownload />
+              </button>
+            </div>
+          </Drawer>
         </div>
       </div>
     </div>
