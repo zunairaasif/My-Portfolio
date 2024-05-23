@@ -1,20 +1,18 @@
-import React, { useState } from "react";
+import {
+  RiMenu3Line,
+  RiFolderInfoFill,
+  RiContactsBook2Fill,
+} from "react-icons/ri";
+import React from "react";
 import { MdWork } from "react-icons/md";
 import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
-import { RiMenu3Line } from "react-icons/ri";
 import { Link, NavLink } from "react-router-dom";
 import { FaHome, FaDownload } from "react-icons/fa";
-import { RiContactsBook2Fill, RiFolderInfoFill } from "react-icons/ri";
 
 import PrimaryBtn from "../../buttons/PrimaryButton";
 
-const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const toggleDrawer = () => {
-    setIsOpen(!isOpen);
-  };
-
+export default function Navbar() {
   const navLinks = [
     { title: "Home", link: "/", icon: <FaHome /> },
     { title: "About", link: "/about", icon: <RiFolderInfoFill /> },
@@ -22,13 +20,15 @@ const Navbar = () => {
     { title: "Contact", link: "/contact", icon: <RiContactsBook2Fill /> },
   ];
 
-  const activeLink = ({ isActive }) => ({
-    fontWeight: 500,
-    color: isActive ? "#FF651C" : "white",
-  });
+  const activeLink = ({ isActive }) => {
+    return {
+      fontWeight: 500,
+      color: isActive && "#FF651C",
+    };
+  };
 
-  const url = "/zunaira-asif_resume.pdf";
   const handleDownload = () => {
+    const url = "/zunaira-asif_resume.pdf";
     const fileName = url.split("/").pop();
     const link = document.createElement("a");
     link.href = url;
@@ -36,6 +36,11 @@ const Navbar = () => {
     document.body.appendChild(link);
     link.click();
     link.remove();
+  };
+
+  const [isOpen, setIsOpen] = React.useState(false);
+  const toggleDrawer = () => {
+    setIsOpen((prevState) => !prevState);
   };
 
   return (
@@ -117,6 +122,4 @@ const Navbar = () => {
       </div>
     </div>
   );
-};
-
-export default Navbar;
+}
