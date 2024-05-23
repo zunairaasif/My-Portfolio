@@ -70,7 +70,7 @@ const Contact = () => {
   ];
 
   return (
-    <div className="parent py-10">
+    <div className="parent py-16">
       <motion.div
         initial="hidden"
         animate={viewDiv && "visible"}
@@ -90,7 +90,7 @@ const Contact = () => {
           animate={viewDiv && "visible"}
           variants={contactAnimation}
         >
-          <Lottie options={defaultOptions} height={400} width={400} />
+          {/* <Lottie options={defaultOptions} height={400} width={400} /> */}
         </motion.div>
 
         <motion.div

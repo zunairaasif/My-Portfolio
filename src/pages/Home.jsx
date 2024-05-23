@@ -8,7 +8,7 @@ const Home = () => {
     <>
       <Intro />
       <Services />
-      {/* <Contact /> */}
+      <Contact />
     </>
   );
 };

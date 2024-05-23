@@ -108,14 +108,11 @@ export default function Navbar() {
               ))}
             </nav>
 
-            <div className="m-3">
-              <button
-                onClick={handleDownload}
-                className="w-full bg-primary py-2 px-4 gap-2 rounded font-bold flex items-center justify-center"
-              >
+            <div className="mx-3">
+              <PrimaryBtn onClick={handleDownload} className="w-full">
                 RESUME
                 <FaDownload />
-              </button>
+              </PrimaryBtn>
             </div>
           </Drawer>
         </div>
