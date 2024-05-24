@@ -141,11 +141,11 @@ const About = () => {
           />
 
           <p className="text-neutral font-medium">
-            I'm your Trusted Frontend Developer. I'm here to create your website
-            in React JS or Next JS with responsive and creative designs. I will
-            be your competent front-end web developer as I have an experience of
-            3+ years and build many projects that not only look appealing but
-            also very performant.
+            I'm your Trusted Frontend Developer. I'm here to create your web
+            applications in React JS or Next JS with responsive and creative
+            designs. I will be your competent front-end web developer as I have
+            an experience of 3+ years and build many projects that not only look
+            appealing but also very performant.
           </p>
           <p className="text-neutral font-medium">
             I believe in more than just project completion but cultivating
