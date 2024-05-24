@@ -13,7 +13,7 @@ import { useInView } from "react-intersection-observer";
 import { FaSquareUpwork, FaLocationDot } from "react-icons/fa6";
 
 import "./style.css";
-import touch from "../assets/touch.json";
+import reach from "../assets/reach.json";
 import BottomLine from "../components/common/BottomLine";
 import { headingAnimation, contactAnimation } from "../components/animations";
 
@@ -33,7 +33,7 @@ const Contact = () => {
   const defaultOptions = {
     loop: true,
     autoplay: true,
-    animationData: touch,
+    animationData: reach,
     rendererSettings: {
       preserveAspectRatio: "xMidYMid slice",
     },
@@ -83,14 +83,14 @@ const Contact = () => {
         <BottomLine />
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10 items-center">
+      <div className="grid grid-cols-1 sm:grid-cols-2 sm:mt-10 gap-20 items-center">
         <motion.div
           ref={ref}
           initial="hidden"
           animate={viewDiv && "visible"}
           variants={contactAnimation}
         >
-          {/* <Lottie options={defaultOptions} height={400} width={400} /> */}
+          <Lottie options={defaultOptions} />
         </motion.div>
 
         <motion.div

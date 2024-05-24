@@ -14,7 +14,7 @@ export const headingAnimation = {
 // Section Body
 export const sectionBodyAnimation = {
   hidden: {
-    y: 20,
+    y: 30,
     opacity: 0,
   },
   visible: {
@@ -23,6 +23,22 @@ export const sectionBodyAnimation = {
     transition: {
       duration: 0.5,
       delay: 0.75,
+    },
+  },
+};
+
+// Contact info
+export const contactInfoAnimation = {
+  hidden: {
+    x: -100,
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.5,
+      delay: 0.2,
     },
   },
 };

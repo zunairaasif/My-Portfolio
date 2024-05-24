@@ -52,7 +52,7 @@ export default function Navbar() {
           </Link>
         </div>
 
-        <div className="hidden md:flex items-center">
+        <div className="lg:flex items-center hidden">
           {navLinks.map((item) => (
             <NavLink
               key={item.title}
