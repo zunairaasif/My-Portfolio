@@ -7,6 +7,7 @@ import { useInView } from "react-intersection-observer";
 import Skills from "../components/layouts/Skills";
 import Education from "../components/layouts/Education";
 import BottomLine from "../components/common/BottomLine";
+import Experience from "../components/layouts/Experience";
 import PrimaryBtn from "../components/buttons/PrimaryButton";
 import { contactInfoAnimation, animateUp } from "../components/animations";
 
@@ -192,6 +193,9 @@ const About = () => {
 
       {/* My Skills */}
       <Skills />
+
+      {/* My Experience */}
+      <Experience />
 
       {/* My Education */}
       <Education />

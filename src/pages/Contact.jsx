@@ -101,7 +101,7 @@ const Contact = () => {
           <h2 className="text-2xl font-medium">Contact Info</h2>
 
           {contact.map((item) => (
-            <div className="flex items-center my-6">
+            <div key={item.id} className="flex items-center my-6">
               <p className="text-xl mr-6 hover:text-primary cursor-pointer duration-300">
                 {item.icon}
               </p>
