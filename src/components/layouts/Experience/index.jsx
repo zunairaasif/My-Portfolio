@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
-import "./style.css";
 import BottomLine from "../../common/BottomLine";
 import { headingAnimation } from "../../animations";
 
@@ -65,9 +64,9 @@ const Experience = () => {
         <BottomLine />
       </motion.div>
 
-      <div className="flex justify-between">
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {exp.map((item) => (
-          <div className="p-6 bg-[#313131] bg-opacity-90 backdrop-blur-lg rounded-lg shadow-lg inline-block w-[350px] hover:shadow-primary duration-300 cursor-pointer">
+          <div className="p-6 bg-secondary bg-opacity-90 backdrop-blur-lg rounded-lg shadow-lg hover:shadow-primary duration-300 cursor-pointer">
             <h3 className="text-2xl font-semibold text-primary animate-bounce">
               {item.title}
             </h3>
@@ -75,13 +74,13 @@ const Experience = () => {
               <p className="text-sm text-neutral font-semibold">{item.year}</p>
             </div>
 
-            <div className="px-3">
+            <div className="px-3 text-sm text-neutral">
               {item.p1 || item.p2 || item.p3 || item.p4 ? (
                 <ul className="list-disc">
-                  <li className="text-sm text-neutral">{item.p1}</li>
-                  <li className="text-sm text-neutral">{item.p2}</li>
-                  <li className="text-sm text-neutral">{item.p3}</li>
-                  <li className="text-sm text-neutral">{item.p4}</li>
+                  <li>{item.p1}</li>
+                  <li>{item.p2}</li>
+                  <li>{item.p3}</li>
+                  <li>{item.p4}</li>
                 </ul>
               ) : null}
             </div>

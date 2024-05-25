@@ -69,7 +69,7 @@ const Services = () => {
         {services?.map((service) => (
           <div
             key={service.id}
-            className="bg-[#313131] shadow-md rounded-lg p-6 
+            className="bg-secondary shadow-md rounded-lg p-6 
             hover:shadow-primary cursor-pointer duration-300"
           >
             <div className="mb-4 text-center">
