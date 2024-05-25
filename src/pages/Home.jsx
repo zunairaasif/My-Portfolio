@@ -1,4 +1,5 @@
 import React from "react";
+import Projects from "./Projects";
 import Contact from "../pages/Contact";
 import Intro from "../components/layouts/Intro";
 import Services from "../components/layouts/Services";
@@ -8,6 +9,7 @@ const Home = () => {
     <>
       <Intro />
       <Services />
+      <Projects />
       <Contact />
     </>
   );
