@@ -58,3 +58,20 @@ export const contactAnimation = {
     },
   },
 };
+
+// Animate UP
+export const animateUp = {
+  hidden: {
+    opacity: 0,
+    y: 100,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      delay: 0.2,
+      // ease: "easeOut",
+    },
+  },
+};
