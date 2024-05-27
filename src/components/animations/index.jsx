@@ -1,4 +1,4 @@
-// Section Heading Animation
+// Animate top to bottom
 export const headingAnimation = {
   hidden: {
     y: -200,
@@ -11,7 +11,7 @@ export const headingAnimation = {
   },
 };
 
-// Section Body
+// Animate bottom to top
 export const sectionBodyAnimation = {
   hidden: {
     y: 30,
@@ -27,8 +27,8 @@ export const sectionBodyAnimation = {
   },
 };
 
-// Contact info
-export const contactInfoAnimation = {
+// Animate Left to Right
+export const animateRight = {
   hidden: {
     x: -100,
     opacity: 0,
@@ -43,8 +43,8 @@ export const contactInfoAnimation = {
   },
 };
 
-// Contact Animation
-export const contactAnimation = {
+// Animate top to bottom
+export const animateBottom = {
   hidden: {
     y: -200,
     opacity: 0,
@@ -59,19 +59,18 @@ export const contactAnimation = {
   },
 };
 
-// Animate UP
-export const animateUp = {
+// Animate Right to Left
+export const animateLeft = {
   hidden: {
+    x: 30,
     opacity: 0,
-    y: 100,
   },
   visible: {
+    x: 0,
     opacity: 1,
-    y: 0,
     transition: {
+      delay: 0.75,
       duration: 0.5,
-      delay: 0.2,
-      // ease: "easeOut",
     },
   },
 };

@@ -3,16 +3,38 @@ import {
   RiFolderInfoFill,
   RiContactsBook2Fill,
 } from "react-icons/ri";
-import React from "react";
 import { MdWork } from "react-icons/md";
 import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
 import { Link, NavLink } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 import { FaHome, FaDownload } from "react-icons/fa";
 
 import PrimaryBtn from "../../buttons/PrimaryButton";
 
 export default function Navbar() {
+  // Show Navbar on Scroll UP
+  const [show, setShow] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  useEffect(() => {
+    const controlNavbar = () => {
+      if (typeof window !== "undefined") {
+        if (window.scrollY > lastScrollY) {
+          setShow(true);
+        } else {
+          setShow(false);
+        }
+        setLastScrollY(window.scrollY);
+      }
+    };
+    if (typeof window !== "undefined") {
+      window.addEventListener("scroll", controlNavbar);
+      return () => {
+        window.removeEventListener("scroll", controlNavbar);
+      };
+    }
+  }, [lastScrollY]);
+
   const navLinks = [
     { title: "Home", link: "/", icon: <FaHome /> },
     { title: "About", link: "/about", icon: <RiFolderInfoFill /> },
@@ -44,7 +66,11 @@ export default function Navbar() {
   };
 
   return (
-    <div className="bg-secondary shadow-lg">
+    <div
+      className={`w-full fixed z-50 flex items-center justify-stretch 
+      bg-secondary shadow-lg transition-all duration-300 ease-linear 
+      ${show ? "-top-20" : "top-0"}`}
+    >
       <div className="w-full flex items-center justify-between px-3 md:px-24 py-3">
         <div>
           <Link to="/">

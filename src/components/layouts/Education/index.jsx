@@ -5,7 +5,7 @@ import { useInView } from "react-intersection-observer";
 
 import BottomLine from "../../common/BottomLine";
 import education from "../../../assets/education.json";
-import { headingAnimation, animateUp } from "../../animations";
+import { animateLeft, animateRight, headingAnimation } from "../../animations";
 
 const Education = () => {
   const animation = useAnimation();
@@ -32,7 +32,6 @@ const Education = () => {
   return (
     <div>
       <motion.div
-        ref={ref}
         className="mb-12"
         initial="hidden"
         animate={viewDiv && "visible"}
@@ -50,7 +49,7 @@ const Education = () => {
           ref={ref}
           initial="hidden"
           animate={viewDiv && "visible"}
-          variants={animateUp}
+          variants={animateRight}
         >
           <div>
             <Lottie
@@ -63,29 +62,39 @@ const Education = () => {
         </motion.div>
 
         <div className="mx-auto lg:ml-auto">
-          <div className="p-6 bg-secondary bg-opacity-90 backdrop-blur-lg rounded-lg shadow-lg inline-block w-[300px] hover:shadow-primary duration-300 cursor-pointer">
-            <div className="text-right mb-4">
-              <h3 className="text-2xl font-semibold text-primary">
-                BS(Computer Science)
-              </h3>
-              <p className="text-sm text-neutral font-semibold">2018 - 2022</p>
+          <motion.div
+            initial="hidden"
+            animate={viewDiv && "visible"}
+            variants={animateLeft}
+          >
+            <div className="p-6 bg-secondary bg-opacity-90 backdrop-blur-lg rounded-lg shadow-lg inline-block w-[300px] hover:shadow-primary duration-300 cursor-pointer">
+              <div className="text-right mb-4">
+                <h3 className="text-2xl font-semibold text-primary">
+                  BS(Computer Science)
+                </h3>
+                <p className="text-sm text-neutral font-semibold">
+                  2018 - 2022
+                </p>
+              </div>
+
+              <p className="text-neutral">The University of Lahore, Lahore</p>
+              <p className="text-sm text-neutral">CGPA - 3.11</p>
             </div>
 
-            <p className="text-neutral">The University of Lahore, Lahore</p>
-            <p className="text-sm text-neutral">CGPA - 3.11</p>
-          </div>
-
-          <div className="my-6 md:my-4 md:ml-[200px] p-6 bg-secondary bg-opacity-90 backdrop-blur-lg rounded-lg shadow-lg w-[300px] hover:shadow-primary duration-300 cursor-pointer">
-            <div className="text-right mb-4">
-              <h3 className="text-2xl font-semibold text-primary">
-                Intermediate
-              </h3>
-              <p className="text-sm text-neutral font-semibold">2016 - 2018</p>
+            <div className="my-6 md:my-4 md:ml-[200px] p-6 bg-secondary bg-opacity-90 backdrop-blur-lg rounded-lg shadow-lg w-[300px] hover:shadow-primary duration-300 cursor-pointer">
+              <div className="text-right mb-4">
+                <h3 className="text-2xl font-semibold text-primary">
+                  Intermediate
+                </h3>
+                <p className="text-sm text-neutral font-semibold">
+                  2016 - 2018
+                </p>
+              </div>
+              <p className="text-sm text-neutral text-justify">
+                Divisional Public School & Inter College (DPS), Sahiwal
+              </p>
             </div>
-            <p className="text-sm text-neutral text-justify">
-              Divisional Public School & Inter College (DPS), Sahiwal
-            </p>
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>

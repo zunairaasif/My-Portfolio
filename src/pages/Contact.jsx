@@ -12,10 +12,14 @@ import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { FaSquareUpwork, FaLocationDot } from "react-icons/fa6";
 
+import {
+  animateBottom,
+  headingAnimation,
+  sectionBodyAnimation,
+} from "../components/animations";
 import "./style.css";
 import reach from "../assets/reach.json";
 import BottomLine from "../components/common/BottomLine";
-import { headingAnimation, contactAnimation } from "../components/animations";
 
 const Contact = () => {
   const animation = useAnimation();
@@ -70,7 +74,7 @@ const Contact = () => {
   ];
 
   return (
-    <div className="parent py-16">
+    <div className="parent mb-16 mt-28">
       <motion.div
         initial="hidden"
         animate={viewDiv && "visible"}
@@ -88,7 +92,7 @@ const Contact = () => {
           ref={ref}
           initial="hidden"
           animate={viewDiv && "visible"}
-          variants={contactAnimation}
+          variants={animateBottom}
         >
           <Lottie options={defaultOptions} />
         </motion.div>
@@ -96,7 +100,7 @@ const Contact = () => {
         <motion.div
           initial={{ y: 50, opacity: 0 }}
           animate={viewDiv && "visible"}
-          variants={contactAnimation}
+          variants={sectionBodyAnimation}
         >
           <h2 className="text-2xl font-medium">Contact Info</h2>
 

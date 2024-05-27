@@ -9,25 +9,20 @@ import Education from "../components/layouts/Education";
 import BottomLine from "../components/common/BottomLine";
 import Experience from "../components/layouts/Experience";
 import PrimaryBtn from "../components/buttons/PrimaryButton";
-import { contactInfoAnimation, animateUp } from "../components/animations";
+import { sectionBodyAnimation } from "../components/animations";
 
 const About = () => {
   const animation = useAnimation();
   const [ref, inView] = useInView();
-  const [ref2, inView2] = useInView();
   const [viewDiv, setViewDiv] = useState(false);
-  const [viewDiv2, setViewDiv2] = useState(false);
 
   useEffect(() => {
     if (inView) {
       setViewDiv(true);
-    } else if (inView2) {
-      setViewDiv2(true);
     } else {
       setViewDiv(false);
-      setViewDiv2(false);
     }
-  }, [inView, inView2, animation]);
+  }, [inView, animation]);
 
   const whyMe = [
     {
@@ -65,10 +60,10 @@ const About = () => {
   };
 
   return (
-    <div className="flex flex-col py-14 gap-28">
+    <div className="flex flex-col mb-20 mt-28 gap-28">
       <div>
         <motion.div
-          className="mb-10"
+          className="mb-14"
           initial={{ y: -200, opacity: 0 }}
           animate={{
             y: 0,
@@ -99,36 +94,28 @@ const About = () => {
               />
             </motion.div>
 
-            <motion.div
-              ref={ref}
-              initial="hidden"
-              animate={viewDiv && "visible"}
-              variants={contactInfoAnimation}
-              className="hidden md:flex w-full justify-center mt-10"
-            >
-              <div className="grid grid-cols-2 gap-x-6 gap-y-4">
-                {contact.map((item) => (
-                  <div key={item.title}>
-                    <h2 className="font-medium mr-2 text-primary">
-                      {item.title}
-                    </h2>
-                    <span>{item.info}</span>
-                  </div>
-                ))}
+            <div className="grid grid-cols-2 gap-x-6 mt-10 gap-y-4">
+              {contact.map((item) => (
+                <div key={item.title}>
+                  <h2 className="font-medium mr-2 text-primary">
+                    {item.title}
+                  </h2>
+                  <span>{item.info}</span>
+                </div>
+              ))}
 
-                <PrimaryBtn onClick={handleDownload}>
-                  Download Resume
-                  <FaDownload />
-                </PrimaryBtn>
-              </div>
-            </motion.div>
+              <PrimaryBtn onClick={handleDownload}>
+                Download Resume
+                <FaDownload />
+              </PrimaryBtn>
+            </div>
           </div>
 
           <motion.div
-            ref={ref2}
+            ref={ref}
             initial="hidden"
-            animate={viewDiv2 && "visible"}
-            variants={animateUp}
+            animate={viewDiv && "visible"}
+            variants={sectionBodyAnimation}
             className="flex flex-col gap-6"
           >
             <h1 className="text-4xl font-semibold text-center md:text-left">

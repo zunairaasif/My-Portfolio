@@ -22,8 +22,8 @@ import {
   headingAnimation,
   sectionBodyAnimation,
 } from "../../../components/animations";
-import BottomLine from "../../common/BottomLine";
 import skill from "../../../assets/skills.json";
+import BottomLine from "../../common/BottomLine";
 
 const Skills = () => {
   const animation = useAnimation();
@@ -139,15 +139,9 @@ const Skills = () => {
           </div>
         </motion.div>
 
-        <motion.div
-          initial={{ y: 50, opacity: 0 }}
-          animate={viewDiv && "visible"}
-          variants={sectionBodyAnimation}
-        >
-          <div>
-            <Lottie options={defaultOptions} height={400} width={360} />
-          </div>
-        </motion.div>
+        <div>
+          <Lottie options={defaultOptions} height={400} width={360} />
+        </div>
       </div>
     </div>
   );

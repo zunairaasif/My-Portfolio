@@ -8,6 +8,7 @@ import Projects from "./pages/Projects";
 import Navbar from "./components/common/Navbar";
 import Footer from "./components/common/Footer";
 import NotFound from "./components/layouts/NotFound";
+import ScrollToTop from "./components/common/ScrollToTop";
 import ProjectDetail from "./components/layouts/ProjectDetail";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
   const isFalse = location.pathname.includes("404");
   return (
     <>
+      <ScrollToTop />
       {isFalse || <Navbar />}
       <div className="px-5 md:px-20">
         <Routes>

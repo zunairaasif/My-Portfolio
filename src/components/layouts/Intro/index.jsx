@@ -34,7 +34,7 @@ const Intro = () => {
   return (
     <div
       className=" min-h-[100vh] flex flex-col-reverse lg:flex-row 
-      items-center sm:justify-center justify-between"
+      items-center sm:justify-center justify-between mt-10"
     >
       <motion.div
         initial={{ x: "-100vw" }}
