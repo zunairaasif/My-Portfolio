@@ -15,10 +15,10 @@ function App() {
   const location = useLocation();
   const isFalse = location.pathname.includes("404");
   return (
-    <>
+    <div className="flex flex-col min-h-screen">
       <ScrollToTop />
       {isFalse || <Navbar />}
-      <div className="px-5 md:px-20">
+      <div className="flex-grow px-5 md:px-20">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -31,7 +31,7 @@ function App() {
         </Routes>
       </div>
       {isFalse || <Footer />}
-    </>
+    </div>
   );
 }
 

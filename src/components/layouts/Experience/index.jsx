@@ -71,7 +71,11 @@ const Experience = () => {
       >
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {exp.map((item) => (
-            <div className="p-6 bg-secondary bg-opacity-90 backdrop-blur-lg rounded-lg shadow-lg hover:shadow-primary duration-300 cursor-pointer">
+            <div
+              key={item.id}
+              className="p-6 bg-secondary bg-opacity-90 backdrop-blur-lg rounded-lg 
+              shadow-lg hover:shadow-primary duration-300 cursor-pointer"
+            >
               <h3 className="text-2xl font-semibold text-primary animate-bounce">
                 {item.title}
               </h3>
