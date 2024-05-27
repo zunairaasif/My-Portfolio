@@ -34,8 +34,7 @@ const Footer = () => {
         {social.map((item) => (
           <a
             key={item.id}
-            target="_blank"
-            rel="noreferrer"
+            target="blank"
             href={item.link}
             className="text-3xl text-neutral hover:text-primary hover:-translate-y-1.5 shadow-lg duration-300"
           >
@@ -64,8 +63,7 @@ const Footer = () => {
           <a
             href="https://www.linkedin.com/in/zunaira-asif-46b072216/"
             className="text-primary hover:underline"
-            target="_blank"
-            rel="noreferrer"
+            target="blank"
           >
             Zunaira Asif
           </a>

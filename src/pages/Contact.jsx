@@ -17,7 +17,6 @@ import {
   headingAnimation,
   sectionBodyAnimation,
 } from "../components/animations";
-import "./style.css";
 import reach from "../assets/reach.json";
 import BottomLine from "../components/common/BottomLine";
 
@@ -121,8 +120,7 @@ const Contact = () => {
               {social.map((item) => (
                 <a
                   key={item.id}
-                  target="_blank"
-                  rel="noreferrer"
+                  target="blank"
                   href={item.link}
                   className="text-3xl gap-2 text-neutral hover:text-primary hover:-translate-y-1.5 shadow-lg duration-300"
                 >

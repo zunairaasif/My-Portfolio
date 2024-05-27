@@ -1,24 +1,25 @@
 import { FiArrowRight } from "react-icons/fi";
 import React, { useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
-import { Link, useLocation } from "react-router-dom";
 import { useInView } from "react-intersection-observer";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import {
   headingAnimation,
   sectionBodyAnimation,
 } from "../components/animations";
-// import "./Project.css";
-import work from "../utils/Work";
+import Work from "../utils/Work";
 import BottomLine from "../components/common/BottomLine";
+import PrimaryBtn from "../components/buttons/PrimaryButton";
 
 const Project = () => {
-  const [items, setItems] = useState(work);
-  const [activeBtn, setActiveBtn] = useState("all");
   const location = useLocation();
-  const [ref, inView] = useInView();
-  const [viewDiv, setViewDiv] = useState(false);
+  const navigate = useNavigate();
   const animation = useAnimation();
+  const [ref, inView] = useInView();
+  const [items, setItems] = useState(Work);
+  const [viewDiv, setViewDiv] = useState(false);
+  const [activeBtn, setActiveBtn] = useState("all");
 
   useEffect(() => {
     if (inView) {
@@ -31,8 +32,14 @@ const Project = () => {
     }
   }, [inView, animation, location, items]);
 
+  const buttons = [
+    { id: "all", label: "All" },
+    { id: "business", label: "Business" },
+    { id: "personal", label: "Personal" },
+  ];
+
   const filterItem = (category) => {
-    const filtered = work.filter((item) => item.category === category);
+    const filtered = Work.filter((item) => item.category === category);
     setItems(filtered);
     if (filtered.length > 3 && location.pathname === "/") {
       setItems(filtered.slice(0, 3));
@@ -49,7 +56,7 @@ const Project = () => {
         >
           <div className="mb-12">
             <h3 className="text-neutral text-center">
-              Some of my recent Projects
+              Some of My Recent Projects
             </h3>
             <h1 className="text-4xl font-semibold text-center">
               Featured <span className="text-primary">Projects</span>
@@ -64,42 +71,27 @@ const Project = () => {
           animate={viewDiv && "visible"}
           variants={sectionBodyAnimation}
         >
-          <div className="mt-6 mb-2 flex items-center justify-center flex-wrap">
-            <button
-              className={`btn btn-sm bg-primary border-2 border-primary text-white hover:bg-transparent hover:border-primary duration-300 mx-3 my-3 sm:my-0 ${
-                activeBtn === "all" && "active-btn"
-              }`}
-              onClick={() => {
-                setActiveBtn("all");
-                location.pathname === "/"
-                  ? setItems(work.slice(0, 3))
-                  : setItems(work);
-              }}
-            >
-              All
-            </button>
-            <button
-              className={`btn btn-sm bg-primary border-2 border-primary text-white hover:bg-transparent hover:border-primary duration-300 mx-3 my-3 sm:my-0 ${
-                activeBtn === "business" && "active-btn"
-              }`}
-              onClick={() => {
-                setActiveBtn("business");
-                filterItem("business");
-              }}
-            >
-              Business
-            </button>
-            <button
-              className={`btn btn-sm bg-primary border-2 border-primary text-white hover:bg-transparent hover:border-primary duration-300 mx-3 my-3 sm:my-0 ${
-                activeBtn === "personal" && "active-btn"
-              }`}
-              onClick={() => {
-                setActiveBtn("personal");
-                filterItem("personal");
-              }}
-            >
-              Personal
-            </button>
+          <div className="my-6 flex items-center justify-center flex-wrap">
+            {buttons.map((item) => (
+              <button
+                key={item.id}
+                className={`btn btn-sm bg-primary px-3 py-1 rounded border-2 border-primary text-white 
+                hover:bg-transparent hover:border-primary duration-300 mx-3 my-3 sm:my-0 
+                ${activeBtn === item.id ? "text-primary bg-transparent" : ""}`}
+                onClick={() => {
+                  setActiveBtn(item.id);
+                  if (item.id === "all") {
+                    location.pathname === "/"
+                      ? setItems(Work.slice(0, 3))
+                      : setItems(Work);
+                  } else {
+                    filterItem(item.id);
+                  }
+                }}
+              >
+                {item.label}
+              </button>
+            ))}
           </div>
 
           {/* Items Card */}
@@ -114,47 +106,44 @@ const Project = () => {
                   transition: { duration: 0.3 },
                 }}
                 key={item.id}
-                className="item-container rounded-lg shadow-lg p-3 flex flex-col justify-between hover:shadow-primary duration-500"
-                style={{ backgroundColor: "#313131" }}
+                className="overflow-hidden h-60 rounded-lg shadow-lg p-3 flex flex-col 
+                justify-between hover:shadow-primary duration-500 bg-secondary relative group"
               >
-                <div className="item h-full">
+                <div className="item h-full relative">
                   <img
                     className="rounded-lg h-full w-full"
                     src={item.mainImage}
-                    alt={item.title || "arbab mustafa"}
+                    alt={item.title || "zunaira asif"}
                   />
-                  <div className="overlay">
+                  <div
+                    className="absolute top-1 right-1 bottom-1 left-1 p-2 text-center border-2
+                    border-primary rounded transition-opacity duration-700 transform scale-140
+                    opacity-0 group-hover:opacity-100 group-hover:scale-100 flex items-center 
+                    justify-center flex-col bg-secondary"
+                  >
                     <h3 className="text-2xl text-primary font-semibold">
                       {item.title}
                     </h3>
-                    <Link
-                      to={`/project/${item.id}`}
-                      className="mt-3 inline-block"
+
+                    <PrimaryBtn
+                      className="mt-4"
+                      onClick={() => navigate(`/project/${item.id}`)}
                     >
-                      <button className="btn btn-sm border-2 border-transparent bg-primary hover:bg-transparent text-white hover:border-primary duration-500">
-                        See Details
-                      </button>
-                    </Link>
+                      See Details
+                      <FiArrowRight />
+                    </PrimaryBtn>
                   </div>
                 </div>
               </motion.div>
             ))}
           </div>
         </motion.div>
+
         {location.pathname === "/" && (
-          <div className="mt-4 text-right">
-            <Link
-              to="/projects"
-              className="text-2xl hover:text-primary duration-300"
-            >
-              <button className="primary-button">
-                <span>See All</span>
-                <span>
-                  <FiArrowRight />
-                </span>
-              </button>
-            </Link>
-          </div>
+          <PrimaryBtn className="mt-4" onClick={() => navigate("/projects")}>
+            See All
+            <FiArrowRight />
+          </PrimaryBtn>
         )}
       </div>
     </div>
