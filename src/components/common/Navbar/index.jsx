@@ -106,7 +106,7 @@ export default function Navbar() {
             onClose={toggleDrawer}
             direction="right"
             style={{ backgroundColor: "#212121" }}
-            className="bla bla bla flex flex-col justify-between pb-4"
+            className="flex flex-col justify-between pb-4"
           >
             <div className="flex justify-end px-4 py-3">
               <button
