@@ -44,7 +44,7 @@ const About = () => {
   const contact = [
     { title: "Name", info: "Zunaira Asif" },
     { title: "Phone | WhatsApp", info: "+92 303 4774200" },
-    { title: "Email", info: "zunairaasif900@gmail.com" },
+    { title: "Email", info: "zunairaa.dev@gmail.com" },
     { title: "Address", info: "Sahiwal, Pakistan" },
   ];
 
@@ -94,7 +94,7 @@ const About = () => {
               />
             </motion.div>
 
-            <div className="grid grid-cols-2 gap-x-6 mt-10 gap-y-4">
+            <div className="hidden md:grid grid-cols-2 gap-x-10 mt-10 gap-y-4">
               {contact.map((item) => (
                 <div key={item.title}>
                   <h2 className="font-medium mr-2 text-primary">
@@ -104,7 +104,7 @@ const About = () => {
                 </div>
               ))}
 
-              <PrimaryBtn onClick={handleDownload}>
+              <PrimaryBtn onClick={handleDownload} className="col-span-2">
                 Download Resume
                 <FaDownload />
               </PrimaryBtn>
@@ -162,7 +162,7 @@ const About = () => {
             </div>
           </motion.div>
 
-          <div className="block md:hidden grid grid-cols-2 gap-x-6 gap-y-4">
+          <div className="md:hidden grid grid-cols-2 gap-x-6 gap-y-4">
             {contact.map((item) => (
               <div key={item.title}>
                 <h2 className="font-medium mr-2 text-primary">{item.title}</h2>
@@ -170,7 +170,7 @@ const About = () => {
               </div>
             ))}
 
-            <PrimaryBtn onClick={handleDownload}>
+            <PrimaryBtn onClick={handleDownload} className="col-span-2">
               Download Resume
               <FaDownload />
             </PrimaryBtn>

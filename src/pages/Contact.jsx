@@ -51,7 +51,7 @@ const Contact = () => {
     { id: 2, title: "+92 303 4774200", icon: <FaPhoneAlt /> },
     {
       id: 3,
-      title: "zunairaasif900@gmail.com",
+      title: "zunairaa.dev@gmail.com",
       icon: <MdEmail />,
     },
     { id: 4, title: "Sahiwal, Pakistan", icon: <FaLocationDot /> },
@@ -60,7 +60,7 @@ const Contact = () => {
   const social = [
     {
       id: 1,
-      link: "https://www.linkedin.com/in/zunaira-asif-46b072216/",
+      link: "https://www.linkedin.com/in/zunaira-a-46b072216/",
       icon: <FaLinkedin />,
     },
     { id: 2, link: "https://github.com/zunairaasif", icon: <FaGithubSquare /> },

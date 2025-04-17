@@ -16,7 +16,7 @@ const Footer = () => {
   const social = [
     {
       id: 1,
-      link: "https://www.linkedin.com/in/zunaira-asif-46b072216/",
+      link: "https://www.linkedin.com/in/zunaira-a-46b072216/",
       icon: <FaLinkedin />,
     },
     { id: 2, link: "https://github.com/zunairaasif", icon: <FaGithubSquare /> },
@@ -30,7 +30,7 @@ const Footer = () => {
 
   return (
     <footer className="w-full text-center p-6 bg-secondary">
-      <div className="flex items-center justify-center mb-6 gap-3">
+      <div className="flex items-center justify-center mb-4 gap-3">
         {social.map((item) => (
           <a
             key={item.id}
@@ -43,17 +43,9 @@ const Footer = () => {
         ))}
       </div>
 
-      <div className="flex items-center justify-center mb-6 gap-10">
-        {navLinks.map((item) => (
-          <NavLink
-            to={item.link}
-            key={item.title}
-            className="text-lg text-neutral hover:text-primary shadow-lg duration-300"
-          >
-            {item.title}
-          </NavLink>
-        ))}
-      </div>
+      <span className="flex justify-self-center text-lg text-neutral mb-4">
+        From Concept to Click — I Build It.
+      </span>
 
       <div className="w-full h-[2px] bg-gray-600"></div>
       <div className="flex flex-col md:flex-row items-center justify-between mt-4">
@@ -61,7 +53,7 @@ const Footer = () => {
         <p>
           Developed by{" "}
           <a
-            href="https://www.linkedin.com/in/zunaira-asif-46b072216/"
+            href="https://www.linkedin.com/in/zunaira-a-46b072216/"
             className="text-primary hover:underline"
             target="blank"
           >
