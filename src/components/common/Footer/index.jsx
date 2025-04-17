@@ -1,17 +1,9 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 import { FaSquareUpwork } from "react-icons/fa6";
 import { FaLinkedin, FaGithubSquare, FaWhatsapp } from "react-icons/fa";
 
 const Footer = () => {
   const year = new Date();
-
-  const navLinks = [
-    { title: "Home", link: "/" },
-    { title: "About", link: "/about" },
-    { title: "Projects", link: "/projects" },
-    { title: "Contact", link: "/contact" },
-  ];
 
   const social = [
     {
